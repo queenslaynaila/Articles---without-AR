@@ -1,5 +1,6 @@
 require_relative "./article.rb"
 require_relative "./author.rb"
+require "pry"
 class Magazine
   attr_accessor :name, :category
   @@all = []
@@ -14,18 +15,20 @@ class Magazine
   end
   def contributors
     Article.all.select do |article|
-      article.magazine.name == self.name
+      article.magazine == self
     end.map do |article|
-      article.name
+      article.author
     end
   end
-  def find_by_name (name)
+  def self.find_by_name (name)
     Magazine.all.find do |magazine|
       magazine.name == name
     end
   end
   def article_titles
-    self.articles.collect do |article|
+    Article.all.select do |article|
+      article.magazine == self
+    end.map do |article|
       article.title
     end
   end
