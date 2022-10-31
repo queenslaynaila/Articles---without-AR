@@ -1,4 +1,4 @@
-require "pry"
+ 
 require_relative "./article.rb"
 require_relative "./magazine.rb"
 class Author

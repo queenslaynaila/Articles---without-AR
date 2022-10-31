@@ -1,3 +1,5 @@
+require_relative "./article.rb"
+require_relative "./author.rb"
 class Magazine
   attr_accessor :name, :category
   @@all = []
@@ -28,7 +30,7 @@ class Magazine
     end
   end
   def contributing_authors
-    self.contributors.select don|author|
+    self.contributors.select do|author|
       author.articles.count > 2
     end
   end
