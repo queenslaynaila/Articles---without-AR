@@ -1,6 +1,6 @@
 require_relative "./article.rb"
 require_relative "./author.rb"
-require "pry"
+ 
 class Magazine
   attr_accessor :name, :category
   @@all = []
